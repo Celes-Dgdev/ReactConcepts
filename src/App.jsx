@@ -54,9 +54,8 @@ function App() {
   <span className="burbuja burbuja8"></span>
 </div>
 
- <BrowserRouter>
-   <Routes>
-    <Route path="/react" element={<ReactPages />} />
+ <BrowserRouter basename="/ReactConcepts">
+   <Routes>   <Route path="/react" element={<ReactPages />} />
     <Route path="/fundamentos" element={<Fundamentos />}  /> 
     <Route path="/jsx" element={<JSX />}  />
     <Route path="/componentes-funcionales" element={<ComponentesFuncionales />} />
