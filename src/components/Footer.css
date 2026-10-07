@@ -1,0 +1,27 @@
+footer {
+  margin-top: 60px;
+  padding: 25px 20px;
+  text-align: center;
+
+  background: #0b0f14;
+  border-top: 1px solid #00d9ff;
+
+  color: #b8c4cc;
+
+  box-shadow: 0 -5px 25px rgba(0, 217, 255, 0.08);
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+footer p:first-child {
+  color: #00d9ff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+footer p:last-child {
+  color: #7f8c96;
+  font-size: 14px;
+}

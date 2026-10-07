@@ -1,0 +1,1377 @@
+/* =========================================================
+   REACTCONCEPTS
+   MAPA FUTURISTA — AZUL / CIAN / MORADO
+   ========================================================= */
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(0, 225, 255, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(160, 80, 255, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 180, 255, 0.10),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #040711,
+      #080b18,
+      #0c1021
+    );
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FONDO TECNOLÓGICO
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(100, 220, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(160, 100, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  z-index: -2;
+}
+
+
+/* Halo luminoso */
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  left: 50%;
+  top: 40%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 210, 255, 0.06),
+      rgba(130, 70, 255, 0.04),
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  animation: haloMovimiento 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+#root {
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   MAPA
+   ========================================================= */
+
+.mapa {
+
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 50px auto;
+
+  text-align: center;
+
+  perspective: 1200px;
+}
+
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+h1 {
+
+  margin-top: 40px;
+
+  margin-bottom: 10px;
+
+  color: #e9faff;
+
+  font-size: 42px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 5px rgba(0, 234, 255, 0.45),
+    0 0 12px rgba(150, 70, 255, 0.25);
+
+  animation:
+    tituloEntrada 1s ease,
+    tituloFlotante 5s ease-in-out infinite;
+}
+
+
+/* Línea debajo del título */
+
+h1::after {
+
+  content: "";
+
+  display: block;
+
+  width: 120px;
+
+  height: 2px;
+
+  margin: 12px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00eaff,
+      #9b5cff,
+      #00eaff,
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(0, 234, 255, 0.5);
+
+  animation:
+    lineaTitulo 3s ease-in-out infinite;
+}
+
+
+h2 {
+
+  margin-top: 15px;
+
+  color: #b8c7d8;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CAJAS / BOTONES
+   ========================================================= */
+
+.caja {
+
+  position: relative;
+
+  display: inline-block;
+
+  min-width: 190px;
+
+  padding: 17px 25px;
+
+  margin: 6px;
+
+  border: 1px solid rgba(110, 220, 255, 0.75);
+
+  border-radius: 16px;
+
+  /*
+    MEZCLA DE COLORES:
+    CIAN + AZUL + VIOLETA + MORADO
+  */
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 240, 255, 0.32),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(180, 80, 255, 0.32),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(15, 86, 130, 0.96),
+      rgba(53, 37, 108, 0.96)
+    );
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+
+  /*
+    PROFUNDIDAD 3D
+  */
+
+  box-shadow:
+
+    0 8px 20px rgba(0, 0, 0, 0.35),
+
+    0 0 14px rgba(0, 210, 255, 0.22),
+
+    0 0 25px rgba(160, 80, 255, 0.16),
+
+    inset 0 0 20px rgba(255, 255, 255, 0.04);
+
+  transform-style: preserve-3d;
+
+  transition:
+
+    transform 0.35s ease,
+
+    box-shadow 0.35s ease,
+
+    border-color 0.35s ease,
+
+    filter 0.35s ease;
+}
+
+
+/* =========================================================
+   REFLEJO SOBRE EL BOTÓN
+   ========================================================= */
+
+.caja::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -120%;
+
+  width: 80%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.16),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.7s ease;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PUNTO DE LUZ
+   ========================================================= */
+
+.caja::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: 9px;
+
+  right: 10px;
+
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #a5fbff;
+
+  box-shadow:
+
+    0 0 6px #00eaff,
+
+    0 0 14px #925cff;
+
+  animation:
+    puntoLuz 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HOVER 3D
+   ========================================================= */
+
+.caja:hover {
+
+  border-color: #b6f5ff;
+
+  transform:
+
+    translateY(-9px)
+
+    rotateX(5deg)
+
+    rotateY(-3deg)
+
+    scale(1.05);
+
+  box-shadow:
+
+    0 15px 35px rgba(0, 0, 0, 0.45),
+
+    0 0 20px rgba(0, 225, 255, 0.40),
+
+    0 0 38px rgba(160, 80, 255, 0.28),
+
+    inset 0 0 25px rgba(255, 255, 255, 0.08);
+
+  filter: brightness(1.12);
+}
+
+
+.caja:hover::before {
+
+  left: 130%;
+}
+
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+   ========================================================= */
+
+.principal {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  padding: 22px 55px;
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 245, 255, 0.42),
+      transparent 50%
+    ),
+
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(190, 80, 255, 0.42),
+      transparent 55%
+    ),
+
+    linear-gradient(
+      135deg,
+      #0784aa,
+      #54369d
+    );
+
+  border-color:
+    rgba(150, 235, 255, 0.9);
+
+  box-shadow:
+
+    0 10px 30px rgba(0, 0, 0, 0.4),
+
+    0 0 22px rgba(0, 220, 255, 0.32),
+
+    0 0 38px rgba(150, 70, 255, 0.22);
+}
+
+
+/* =========================================================
+   RUTA
+   ========================================================= */
+
+.ruta {
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  background:
+
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(0, 230, 255, 0.30),
+      transparent 50%
+    ),
+
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(175, 75, 255, 0.30),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      135deg,
+      #17678d,
+      #4d3384
+    );
+
+  border-color:
+    rgba(120, 225, 255, 0.82);
+}
+
+
+/* =========================================================
+   FILAS
+   ========================================================= */
+
+.fila {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 40px;
+
+  margin: 25px 0;
+}
+
+
+/* =========================================================
+   BLOQUES
+   ========================================================= */
+
+.bloque {
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* Línea energética */
+
+.bloque::after {
+
+  content: "";
+
+  width: 2px;
+
+  height: 25px;
+
+  margin-top: 5px;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      #00eaff,
+      #955cff,
+      transparent
+    );
+
+  opacity: 0.65;
+
+  box-shadow:
+    0 0 8px rgba(0, 220, 255, 0.5);
+
+  animation:
+    energia 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLECHAS
+   ========================================================= */
+
+.flecha {
+
+  margin: 10px 0;
+
+  color: #7eeeff;
+
+  font-size: 30px;
+
+  text-shadow:
+
+    0 0 7px rgba(0, 234, 255, 0.55),
+
+    0 0 15px rgba(145, 80, 255, 0.35);
+
+  animation:
+    flechaMovimiento 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ACTUAL / COMPLETADO
+   ========================================================= */
+
+/*
+   Ya no usamos amarillo.
+   Tiene exactamente la misma familia
+   de colores que los demás.
+*/
+
+.actual {
+
+  opacity: 1;
+
+  border-color:
+    rgba(110, 220, 255, 0.75);
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 240, 255, 0.32),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(180, 80, 255, 0.32),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(15, 86, 130, 0.96),
+      rgba(53, 37, 108, 0.96)
+    );
+
+  box-shadow:
+
+    0 8px 20px rgba(0, 0, 0, 0.35),
+
+    0 0 14px rgba(0, 210, 255, 0.22),
+
+    0 0 25px rgba(160, 80, 255, 0.16),
+
+    inset 0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+
+.actual:hover {
+
+  border-color: #b6f5ff;
+
+  box-shadow:
+
+    0 15px 35px rgba(0, 0, 0, 0.45),
+
+    0 0 20px rgba(0, 225, 255, 0.40),
+
+    0 0 38px rgba(160, 80, 255, 0.28);
+}
+
+
+/* =========================================================
+   PENDIENTE
+   ========================================================= */
+
+/*
+   IMPORTANTE:
+   Lo dejamos en opacity 1 para que
+   tus últimos temas ya no aparezcan apagados.
+*/
+
+.pendiente {
+
+  opacity: 1;
+
+  border-color:
+    rgba(110, 220, 255, 0.75);
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 240, 255, 0.32),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(180, 80, 255, 0.32),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(15, 86, 130, 0.96),
+      rgba(53, 37, 108, 0.96)
+    );
+
+  box-shadow:
+
+    0 8px 20px rgba(0, 0, 0, 0.35),
+
+    0 0 14px rgba(0, 210, 255, 0.22),
+
+    0 0 25px rgba(160, 80, 255, 0.16),
+
+    inset 0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+
+.pendiente:hover {
+
+  opacity: 1;
+
+  border-color: #b6f5ff;
+
+  box-shadow:
+
+    0 15px 35px rgba(0, 0, 0, 0.45),
+
+    0 0 20px rgba(0, 225, 255, 0.40),
+
+    0 0 38px rgba(160, 80, 255, 0.28);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes tituloEntrada {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(-15px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes tituloFlotante {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+  }
+
+  50% {
+
+    transform:
+      translateY(-3px);
+  }
+}
+
+
+@keyframes lineaTitulo {
+
+  0%,
+  100% {
+
+    opacity: 0.45;
+
+    transform:
+      scaleX(0.8);
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform:
+      scaleX(1.15);
+  }
+}
+
+
+@keyframes puntoLuz {
+
+  0%,
+  100% {
+
+    opacity: 0.55;
+
+    transform:
+      scale(1);
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.5);
+  }
+}
+
+
+@keyframes flechaMovimiento {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
+    opacity: 0.7;
+  }
+
+  50% {
+
+    transform:
+      translateY(5px);
+
+    opacity: 1;
+  }
+}
+
+
+@keyframes energia {
+
+  0%,
+  100% {
+
+    opacity: 0.3;
+
+    transform:
+      scaleY(0.8);
+  }
+
+  50% {
+
+    opacity: 0.9;
+
+    transform:
+      scaleY(1.1);
+  }
+}
+
+
+@keyframes haloMovimiento {
+
+  0%,
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+  width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+  background:
+    #050711;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #00dfff,
+      #7955ff
+    );
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 8px rgba(0, 220, 255, 0.5);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #8ffaff,
+      #a875ff
+    );
+}
+
+/* =========================================================
+   BURBUJAS FLOTANTES DEL FONDO
+   ========================================================= */
+
+.burbujas {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+.mapa {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   BURBUJA BASE
+   ========================================================= */
+
+.burbuja {
+  position: absolute;
+
+  bottom: -80px;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  /*
+    Mezcla de cian + azul + morado
+  */
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.85),
+      rgba(120, 245, 255, 0.45) 18%,
+      rgba(40, 180, 255, 0.20) 45%,
+      rgba(150, 70, 255, 0.18) 70%,
+      transparent 100%
+    );
+
+  border:
+    1px solid rgba(150, 240, 255, 0.55);
+
+  box-shadow:
+    0 0 8px rgba(0, 225, 255, 0.45),
+    0 0 18px rgba(120, 90, 255, 0.25),
+    inset 3px 3px 7px rgba(255, 255, 255, 0.25);
+
+  opacity: 0;
+
+  animation:
+    burbujaSubir 9s linear infinite;
+}
+
+
+/* =========================================================
+   REFLEJO DE LA BURBUJA
+   ========================================================= */
+
+.burbuja::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 5px;
+  left: 7px;
+
+  width: 7px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  filter: blur(1px);
+
+  transform: rotate(-35deg);
+}
+
+
+/* =========================================================
+   ANILLO DEL ESTALLIDO
+   ========================================================= */
+
+.burbuja::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(100, 235, 255, 0);
+
+  transform: scale(0.5);
+
+  opacity: 0;
+
+  animation:
+    explosionBurbuja 9s linear infinite;
+}
+
+
+/* =========================================================
+   BURBUJAS INDIVIDUALES
+   ========================================================= */
+
+.burbuja1 {
+  left: 8%;
+
+  width: 25px;
+  height: 25px;
+
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+
+.burbuja2 {
+  left: 20%;
+
+  width: 42px;
+  height: 42px;
+
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+
+.burbuja3 {
+  left: 34%;
+
+  width: 20px;
+  height: 20px;
+
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+
+.burbuja4 {
+  left: 48%;
+
+  width: 35px;
+  height: 35px;
+
+  animation-duration: 10s;
+  animation-delay: 5s;
+}
+
+
+.burbuja5 {
+  left: 63%;
+
+  width: 24px;
+  height: 24px;
+
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+
+.burbuja6 {
+  left: 76%;
+
+  width: 45px;
+  height: 45px;
+
+  animation-duration: 12s;
+  animation-delay: 4s;
+}
+
+
+.burbuja7 {
+  left: 88%;
+
+  width: 18px;
+  height: 18px;
+
+  animation-duration: 7s;
+  animation-delay: 6s;
+}
+
+
+.burbuja8 {
+  left: 55%;
+
+  width: 28px;
+  height: 28px;
+
+  animation-duration: 9s;
+  animation-delay: 7s;
+}
+
+
+/* =========================================================
+   MOVIMIENTO HACIA ARRIBA
+   ========================================================= */
+
+@keyframes burbujaSubir {
+
+  0% {
+
+    transform:
+      translateY(0)
+      translateX(0)
+      scale(0.5);
+
+    opacity: 0;
+  }
+
+
+  8% {
+
+    opacity: 0.8;
+  }
+
+
+  20% {
+
+    transform:
+      translateY(-15vh)
+      translateX(20px)
+      scale(0.8);
+
+    opacity: 0.9;
+  }
+
+
+  40% {
+
+    transform:
+      translateY(-35vh)
+      translateX(-25px)
+      scale(1);
+
+    opacity: 0.75;
+  }
+
+
+  60% {
+
+    transform:
+      translateY(-55vh)
+      translateX(30px)
+      scale(0.95);
+
+    opacity: 0.8;
+  }
+
+
+  78% {
+
+    transform:
+      translateY(-73vh)
+      translateX(-20px)
+      scale(1.05);
+
+    opacity: 0.9;
+  }
+
+
+  88% {
+
+    transform:
+      translateY(-86vh)
+      translateX(15px)
+      scale(1);
+
+    opacity: 1;
+  }
+
+
+  94% {
+
+    transform:
+      translateY(-92vh)
+      scale(1.25);
+
+    opacity: 1;
+  }
+
+
+  96% {
+
+    transform:
+      translateY(-94vh)
+      scale(1.7);
+
+    opacity: 0;
+  }
+
+
+  100% {
+
+    transform:
+      translateY(-95vh)
+      scale(0.2);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   EXPLOSIÓN / ESTALLIDO
+   ========================================================= */
+
+@keyframes explosionBurbuja {
+
+  0%,
+  87% {
+
+    transform: scale(0.4);
+
+    opacity: 0;
+
+    border-color:
+      rgba(120, 240, 255, 0);
+  }
+
+
+  90% {
+
+    transform: scale(0.8);
+
+    opacity: 0.8;
+
+    border-color:
+      rgba(120, 240, 255, 0.8);
+
+    box-shadow:
+      0 0 10px rgba(0, 230, 255, 0.6);
+  }
+
+
+  93% {
+
+    transform: scale(1.8);
+
+    opacity: 1;
+
+    border-color:
+      rgba(180, 100, 255, 0.7);
+
+    box-shadow:
+      0 0 20px rgba(0, 230, 255, 0.8),
+      0 0 35px rgba(160, 70, 255, 0.6);
+  }
+
+
+  96% {
+
+    transform: scale(3);
+
+    opacity: 0;
+
+    border-color:
+      rgba(160, 90, 255, 0);
+  }
+
+
+  100% {
+
+    transform: scale(3.5);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   RESPETO A REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .burbuja,
+  .burbuja::after {
+
+    animation: none;
+  }
+}
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .mapa {
+
+    width: 95%;
+
+    margin-top: 30px;
+  }
+
+
+  h1 {
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+  }
+
+
+  h2 {
+
+    font-size: 17px;
+  }
+
+
+  .fila {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+  }
+
+
+  .caja {
+
+    min-width: 160px;
+
+    padding: 15px 20px;
+  }
+
+
+  .principal {
+
+    font-size: 21px;
+
+    padding: 18px 35px;
+  }
+}
+
+
+/* =========================================================
+   RESPETAR PREFERENCIA DE MENOS ANIMACIÓN
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation: none !important;
+
+    transition: none !important;
+  }
+}
